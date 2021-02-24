@@ -50,3 +50,13 @@ void connectToServer()
     exit(EXIT_FAILURE);
   }
 }
+
+void sendToServer(const char* msg, size_t count)
+{
+  ssize_t result = 0;
+  result = write(conn, msg, count);
+  if(result < 0)
+  {
+    perror("sendToServer failed");
+  }
+}
